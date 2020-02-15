@@ -4,14 +4,14 @@
   gather_facts: false
 
   vars:
-    apptag: "v1.1"
+    apptag: "v1"
 
   tasks:
   - name: Build an image and push it to a private repo
     docker_image:
       build:
         path: .
-#        nocache: yes
+        nocache: yes
       name: asia.gcr.io/kubernetes-268302/hello-ansible
       tag: "{{ apptag }}"
       push: yes
