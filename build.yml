@@ -1,3 +1,15 @@
 - name: Build the application image
   hosts: localhost
   connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Build an image and push it to a private repo
+    docker_image:
+      build:
+        path: .
+#        nocache: yes
+      name: asia.gcr.io/kubernetes-268302/hello-ansible
+      tag: "{{ apptag }}"
+      push: yes
+      source: build
