@@ -1,3 +1,4 @@
+#kubectl expose deployment hello-ansible --port=80 --target-port=8080 --type=LoadBalancer --dry-run -o yaml > service.yml
 apiVersion: v1
 kind: Service
 metadata:

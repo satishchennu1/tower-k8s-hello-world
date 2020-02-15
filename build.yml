@@ -4,7 +4,7 @@
   gather_facts: false
 
   vars:
-    apptag: "v1.5"
+    apptag: "v1.0"
 
   tasks:
   - name: Build an image and push it to a private repo
