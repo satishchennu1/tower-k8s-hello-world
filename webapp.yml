@@ -18,7 +18,7 @@ spec:
         run: hello-ansible
     spec:
       containers:
-      - image: asia.gcr.io/kubernetes-268302/hello-ansible:v1.1
+      - image: "asia.gcr.io/kubernetes-268302/hello-ansible:{{ apptag }}"
         name: hello-ansible
         ports:
         - containerPort: 8080

@@ -3,6 +3,9 @@
   connection: local
   gather_facts: false
 
+  vars:
+    apptag: "v1.5"
+
   tasks:
   - name: Build an image and push it to a private repo
     docker_image:
@@ -13,3 +16,8 @@
       tag: "{{ apptag }}"
       push: yes
       source: build
+
+  - set_stats:
+    data:
+      apptag: "{{ apptag }}"
+    per_host: no
