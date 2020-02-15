@@ -18,6 +18,6 @@
       source: build
 
   - set_stats:
-    data:
-      apptag: "{{ apptag }}"
-    per_host: no
+      data:
+        apptag: "{{ apptag }}"
+      per_host: no
