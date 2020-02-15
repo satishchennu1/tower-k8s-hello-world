@@ -1,4 +1,4 @@
-- name: Build the application image
+- name: Build the application image and push it to the Google container registry
   hosts: localhost
   connection: local
   gather_facts: false
