@@ -1,0 +1,27 @@
+- name: Deploying webapp using Ansible on K8s
+  hosts: localhost
+  connection: local
+  
+  vars:
+    kubecfg: "~/.kube/config"
+
+  tasks:
+  - name: Create the deployment
+    k8s:
+      state: present
+      namespace: default
+      kubeconfig: "{{ kubecfg }}"
+      definition: "{{ lookup('template', 'webapp.yml') }}"
+      validate:
+        fail_on_error: no
+        strict: yes
+
+  - name: Expose the service via GCP load balancer
+    k8s:
+      state: present
+      namespace: default
+      kubeconfig: "{{ kubecfg }}"
+      definition: "{{ lookup('template', 'service.yml') }}"
+      validate:
+        fail_on_error: no
+        strict: yes

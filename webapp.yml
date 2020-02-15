@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: hello-ansible
+  name: hello-ansible
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: hello-ansible
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: hello-ansible
+    spec:
+      containers:
+      - image: "asia.gcr.io/kubernetes-268302/hello-ansible:{{ apptag }}"
+        name: hello-ansible
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
